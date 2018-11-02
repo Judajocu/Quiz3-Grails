@@ -13,6 +13,11 @@ class User implements Serializable {
 
     String username
     String password
+    String cedula
+    String nombre
+    String apellido
+    String fechanacimiento
+    String email
     boolean enabled = true
     boolean accountExpired
     boolean accountLocked
@@ -25,6 +30,11 @@ class User implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
+        cedula nullable: false, blank: false, unique: true
+        nombre nullable: false, blank: false
+        apellido nullable: false, blank: false
+        email email: true, nullable: false, blank: false
+        fechanacimiento nullable: false, blank: false
     }
 
     static mapping = {
