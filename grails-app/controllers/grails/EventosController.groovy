@@ -19,6 +19,9 @@ class EventosController {
     }
 
     def create() {
+        def eve = new Eventos(params)
+        println("esto: "+eve.nombre)
+
         respond new Eventos(params)
     }
 
@@ -27,6 +30,7 @@ class EventosController {
             notFound()
             return
         }
+
 
         try {
             eventosService.save(eventos)
