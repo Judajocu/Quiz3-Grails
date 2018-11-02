@@ -3,9 +3,9 @@
 grails.plugin.springsecurity.password.algorithm = 'bcrypt'
 
 // Added by the Spring Security Core plugin:
-//grails.plugin.springsecurity.userLookup.userDomainClassName = 'grails.Usuario'
-//grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'grails.UsuarioRole'
-//grails.plugin.springsecurity.authority.className = 'grails.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'grails.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'grails.UserRole'
+grails.plugin.springsecurity.authority.className = 'grails.Role'
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         [pattern: '/',               access: ['permitAll']],
