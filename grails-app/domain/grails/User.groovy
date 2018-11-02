@@ -23,6 +23,9 @@ class User implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
+    static belongsTo = [Eventos]
+    static hasMany = [eventos: Eventos]
+
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
     }
