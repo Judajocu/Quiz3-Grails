@@ -4,8 +4,8 @@ class Eventos implements Serializable{
 
     String nombre
     String descripcion
-    Date fecha_inicio
-    Date fecha_fin
+    String fecha_inicio
+    String fecha_fin
     int edad_permitida
 
     static hasMany = [usuarios: User]
@@ -16,5 +16,6 @@ class Eventos implements Serializable{
     }
     
     static constraints = {
+        edad_permitida min: 0, max: 60
     }
 }
