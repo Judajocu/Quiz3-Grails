@@ -10,6 +10,27 @@ class EventosController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+        def listaV=Eventos.list(); // Todos los estudiantes.
+
+        Set<Eventos> eve=new HashSet<>()
+        for(evi in eve){
+            def duration = groovy.time.TimeCategory.minus(
+                    new Date(),
+                    eve.fecha_inicio
+            );
+            int day=duration.days
+            if(day>0){
+                eve.estado=true;
+                eventosService.save(eve)
+            }
+            else {
+                eve.estado=false;
+                eventosService.save(eve)
+            }
+        }
+        //Retornando datos a la vista....
+        //[listaU: listaUsuarios]
+
         params.max = Math.min(max ?: 10, 100)
         respond eventosService.list(params), model:[eventosCount: eventosService.count()]
     }
@@ -37,10 +58,11 @@ class EventosController {
             );
             int age=duration.days/365
             if(age<eventos.edad_permitida){
-                println("La edad no es permitida ")
+                println(eve.nombre+": No cumple con la edad permitida, no se agrego al evento")
             }
             else {
                 van.add(eve)
+                println(eve.nombre+": cumple con la edad permitida")
             }
         }
 
