@@ -11,8 +11,8 @@ class BootStrap {
     def init = { servletContext ->
 
         def yesterday =new Date().plus(-30)
-        User admin =new User(username: "GioGio",password: springSecurityService.encodePassword("1234"), cedula: "0123456789", nombre: "Giorno", apellido: "Giovanna", fechanacimiento:yesterday, email: "Giogio@jojo.com" ).save(failOnError: true)
-        User user =new User(username: "JoJo",nombre: "Jonathan", apellido: "Joestar", email: "jojo@jojo.com",fechanacimiento:yesterday, cedula: "987643210", password: springSecurityService.encodePassword("1234")).save(failOnError: true)
+        User admin =new User(username: "GioGio",password: "1234", cedula: "0123456789", nombre: "Giorno", apellido: "Giovanna", fechanacimiento:yesterday, email: "Giogio@jojo.com" ).save(failOnError: true)
+        User user =new User(username: "JoJo",nombre: "Jonathan", apellido: "Joestar", email: "jojo@jojo.com",fechanacimiento:yesterday, cedula: "987643210", password: "1234").save(failOnError: true)
 
         def roleAdmin = new Role(authority: "ROLE_ADMIN") .save(failOnError: true)
         def roleUsuario = new Role(authority: "ROLE_USUARIO").save(failOnError: true)
