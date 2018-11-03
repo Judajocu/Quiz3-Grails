@@ -28,12 +28,23 @@ class EventosController {
             return
         }
 
+        Set<User> van=new HashSet<>()
         println("esto: "+eventos.nombre)
         for(eve in eventos.usuarios){
-            println("esto: "+eve.nombre+ " " + eve.apellido+" fecha:"+eve.fechanacimiento)
-
+            def duration = groovy.time.TimeCategory.minus(
+                    new Date(),
+                    eve.fechanacimiento
+            );
+            int age=duration.days/365
+            if(age<eventos.edad_permitida){
+                println("La edad no es permitida ")
+            }
+            else {
+                van.add(eve)
+            }
         }
 
+        eventos.usuarios=van
 
         try {
             eventosService.save(eventos)
