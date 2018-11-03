@@ -4,8 +4,8 @@ class Eventos implements Serializable{
 
     String nombre
     String descripcion
-    String fecha_inicio
-    String fecha_fin
+    Date fecha_inicio
+    Date fecha_fin
     int edad_permitida
 
     static hasMany = [usuarios: User]

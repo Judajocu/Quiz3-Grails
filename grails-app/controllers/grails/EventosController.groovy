@@ -19,9 +19,6 @@ class EventosController {
     }
 
     def create() {
-        def eve = new Eventos(params)
-        println("esto: "+eve.nombre)
-
         respond new Eventos(params)
     }
 
@@ -29,6 +26,11 @@ class EventosController {
         if (eventos == null) {
             notFound()
             return
+        }
+
+        println("esto: "+eventos.nombre)
+        for(eve in eventos.usuarios){
+            println("esto: "+eve.nombre+ " " + eve.apellido)
         }
 
 

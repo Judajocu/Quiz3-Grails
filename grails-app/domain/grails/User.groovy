@@ -16,7 +16,7 @@ class User implements Serializable {
     String cedula
     String nombre
     String apellido
-    String fechanacimiento
+    Date fechanacimiento
     String email
     boolean enabled = true
     boolean accountExpired
