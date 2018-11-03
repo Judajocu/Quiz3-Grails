@@ -30,7 +30,8 @@ class EventosController {
 
         println("esto: "+eventos.nombre)
         for(eve in eventos.usuarios){
-            println("esto: "+eve.nombre+ " " + eve.apellido)
+            println("esto: "+eve.nombre+ " " + eve.apellido+" fecha:"+eve.fechanacimiento)
+
         }
 
 
@@ -102,4 +103,6 @@ class EventosController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+
 }
